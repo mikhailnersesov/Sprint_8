@@ -30,6 +30,18 @@
             <version>5.6.2</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>6.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.acai</groupId>
+            <artifactId>acai</artifactId>
+            <version>1.1</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
