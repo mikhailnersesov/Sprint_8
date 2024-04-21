@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.junit.Assert;
 
+
 public class SeleniumMetroTest {
 
     // создали поля для драйвера и страницы
@@ -23,6 +24,7 @@ public class SeleniumMetroTest {
     @Before
     public void setUp() {
         // открыли браузер
+        //TODO disabled for local intelij tests
 //        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--no-sandbox", "--headless", "--disable-dev-shm-usage");
 //        driver = new ChromeDriver(options);
@@ -53,6 +55,16 @@ public class SeleniumMetroTest {
         metroPage.buildRoute(STATION_LUBYANKA,STATION_KRASNOGVARD);
         // проверь, что у первого маршрута списка отображается нужное примерное время поездки
         Assert.assertEquals("≈ 36 мин.", metroPage.getApproximateRouteTime(0));
+    }
+
+    // проверь отображение станции «Откуда» в карточке маршрута
+    @Test
+    public void checkRouteStationFromIsCorrect() {
+        // построй маршрут от «Лубянки» до «Красногвардейской»
+        metroPage.buildRoute(STATION_LUBYANKA,STATION_KRASNOGVARD);
+        // проверь, что отображается корректное название станции начала маршрута
+        Assert.assertEquals(STATION_LUBYANKA,metroPage.getRouteStationFrom());
+
     }
 
     @After
